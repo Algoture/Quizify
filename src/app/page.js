@@ -62,14 +62,16 @@ export default function QuizApp() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-6  transition-all">
-      <Card className="w-full max-w-lg p-6  dark:bg-gray-800 shadow-2xl rounded-xl border border-gray-300 dark:border-gray-700">
+      <Card className="p-4 space-y-3 max-w-lg mx-auto border border-gray-300 ">
         <CardContent>
           {!quizStarted ? (
             <div className="text-center">
               <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
                 Welcome to the Quiz
               </h2>
-              <Button variant="default" onClick={startQuiz}>
+              <Button
+                className="rounded border border-gray-300  bg-card text-card-foreground shadow"
+                onClick={startQuiz}>
                 Start Quiz
               </Button>
             </div>
@@ -112,7 +114,7 @@ export default function QuizApp() {
                       transition={{ duration: 0.2 }}>
                       <Button
                         variant="outline"
-                        className="w-full py-3 text-lg border-gray-400 dark:border-gray-600 rounded-lg transition duration-200 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-700"
+                        className="w-full py-3 rounded border border-gray-300  bg-card text-card-foreground shadow"
                         onClick={() => handleAnswer(answer.is_correct)}>
                         {answer.description}
                       </Button>
@@ -128,15 +130,13 @@ export default function QuizApp() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, ease: "easeOut" }}>
               <h2 className="text-3xl font-bold text-green-600 dark:text-green-400">
-                🎉 Quiz Completed!
+                Quiz Completed!
               </h2>
               <p className="mt-4 text-lg font-semibold text-gray-700 dark:text-gray-300">
                 Your Score: {score} / {questions.length}
               </p>
-              
-              <Button
-                className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-all ease-in-out duration-200"
-                onClick={restartQuiz}>
+
+              <Button className="border border-gray-300 rounded" onClick={restartQuiz}>
                 Restart Quiz
               </Button>
             </motion.div>
