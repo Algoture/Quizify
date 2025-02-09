@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Quizify
+
+Quizify is an interactive web-based quiz application built with **Next.js**, **Tailwind CSS**, and **shadcn UI**. It allows users to create, customize, and take quizzes in an intuitive and responsive interface.
+
+[Live Demo](https://quizify-rho.vercel.app)
+
+## Features
+
+- User-friendly and responsive interface
+- Built with modern technologies (Next.js, Tailwind CSS, shadcn UI)
+- Fast and optimized performance
+- Easy deployment with Vercel
+- Gamified 
 
 ## Getting Started
 
-First, run the development server:
+Follow these instructions to get a local copy of the project up and running.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Make sure you have **Node.js** and **npm** installed on your machine. You can download them from [Node.js official site](https://nodejs.org/).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone the repository:**
 
-## Learn More
+   ```bash
+   git clone https://github.com/Algoture/Quizify.git
+   cd Quizify
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Start the development server:**
 
-## Deploy on Vercel
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Open the app:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   Navigate to `http://localhost:3000` in your browser to see the app in action.
+
+## Project Structure
+
+- `src/` - Main source code folder
+  - `components/` - Reusable components
+  - `pages/` - Application pages (Next.js routing)
+  - `styles/` - Custom styles and Tailwind configuration
+- `public/` - Static assets
+- `package.json` - Project metadata and dependencies
+
+## Technologies Used
+
+- [Next.js](https://nextjs.org/) - React framework for server-rendered apps
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [shadcn UI](https://ui.shadcn.com/) - Beautifully designed UI components
+- [Vercel](https://vercel.com/) - Deployment platform for Next.js
+
+
+Enjoy using Quizify and feel free to reach out with any feedback!
+
