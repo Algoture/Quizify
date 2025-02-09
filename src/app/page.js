@@ -3,28 +3,16 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import data from "./data";
 
 export default function QuizApp() {
-  const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [timeLeft, setTimeLeft] = useState(15);
   const [quizStarted, setQuizStarted] = useState(false);
-
-  useEffect(() => {
-    const fetchQuizData = async () => {
-      try {
-        const response = await fetch("/api/quiz");
-        const data = await response.json();
-        setQuestions(data.questions);
-      } catch (error) {
-        console.error("Error fetching quiz data:", error);
-      }
-    };
-    fetchQuizData();
-  }, []);
-
+  const questions=data.questions;
+  
   useEffect(() => {
     if (!quizStarted || quizCompleted) return;
     if (timeLeft > 0) {
@@ -42,7 +30,7 @@ export default function QuizApp() {
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
-      setTimeLeft(10);
+      setTimeLeft(15);
     } else {
       setQuizCompleted(true);
     }
@@ -55,7 +43,7 @@ export default function QuizApp() {
   const restartQuiz = () => {
     setCurrentQuestion(0);
     setScore(0);
-    setTimeLeft(10);
+    setTimeLeft(15);
     setQuizCompleted(false);
     setQuizStarted(false);
   };
@@ -66,9 +54,9 @@ export default function QuizApp() {
         <CardContent>
           {!quizStarted ? (
             <div className="text-center">
-              <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
-                Welcome to the Quiz
-              </h2>
+              <p className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
+                Welcome to Quizify
+              </p>
               <Button
                 className="rounded border border-gray-300  bg-card text-card-foreground shadow"
                 onClick={startQuiz}>
@@ -82,9 +70,9 @@ export default function QuizApp() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}>
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">
+                <p className="text-xl font-semibold text-gray-800 dark:text-white">
                   {questions[currentQuestion].description}
-                </h2>
+                </p>
                 <div className="relative w-full h-2 mt-4 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: "0%" }}
@@ -102,8 +90,8 @@ export default function QuizApp() {
                     timeLeft <= 3
                       ? "text-red-500"
                       : "text-gray-600 dark:text-gray-400"
-                  }`}>
-                  ⏳ Time left: {timeLeft}s
+                      }`}>
+                  Time left: {timeLeft}s
                 </p>
 
                 <div className="mt-6 grid gap-3">
